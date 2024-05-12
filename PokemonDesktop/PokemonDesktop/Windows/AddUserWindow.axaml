@@ -1,0 +1,147 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="450"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="None"
+        x:Class="PokemonDesktop.Windows.AddUserWindow"
+        Title="AddUserWindow">
+
+  <Window.Styles>
+    
+    <Style Selector="TextBlock">
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="Foreground" Value="#FFFFFF" />
+    </Style>
+    
+    <Style Selector="TextBox">
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Foreground" Value="#FFFFFF" />
+      <Setter Property="FontWeight" Value="Medium" />
+      <Setter Property="FontFamily" Value="Roboto" />
+      <Setter Property="Background" Value="#3A3D41" />
+      <Setter Property="MaxLength" Value="100" />
+      <Setter Property="BorderBrush" Value="transparent" />
+      <Setter Property="MaxLength" Value="100" />
+    </Style>
+    
+    <Style Selector="Button.status">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Height" Value="30" />
+      <Setter Property="Width" Value="40" />
+    </Style>
+    
+    <Style Selector="Button">
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="Foreground" Value="Black" />
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="FontFamily" Value="Roboto" />
+      <Setter Property="Background" Value="#FFC618" />
+      <Setter Property="Height" Value="38" />
+      <Setter Property="Width" Value="120" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    
+    <Style Selector="ComboBoxItem">
+      <Setter Property="Background" Value="#3A3D41"/>
+    </Style>
+  </Window.Styles>
+
+  <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <Grid>
+      
+      <Grid.RowDefinitions>
+        <RowDefinition Height="30"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+      </Grid.RowDefinitions>
+      
+      <Grid Row="0"
+            Background="#202327"
+            PointerPressed="Window_PointerPressed">
+        <StackPanel HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+          <Button Classes="status"
+                  Click="ButtonClose_OnClick">
+            <Image Source="/Assets/Icons/on-off-button_icon.png"></Image>
+          </Button>
+        </StackPanel>
+      </Grid>
+      
+      <StackPanel Grid.Row="1" 
+        Orientation="Vertical"
+                  Background="#292D32">
+        <TextBlock
+          FontSize="25"
+          Padding="30,20"
+          Text="Create User">
+        </TextBlock>
+        
+
+        <Grid Margin="30,20,30,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0"
+                      Margin="0,0,8,0">
+            <TextBlock Text="Username"></TextBlock>
+            <TextBox TextWrapping="NoWrap"
+                     Name="TextBoxUsername"
+                     Text="{Binding Username}"
+                     MaxLength="100">
+            </TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="1"
+                      Margin="0,0,8,0">
+            <TextBlock Text="Password"></TextBlock>
+            <TextBox TextWrapping="NoWrap"
+                     Name="TextBoxPassword"
+                     Text="{Binding Password}"
+                     MaxLength="80">
+            </TextBox>
+          </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,20,30,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0"
+                      Margin="0,0,8,0">
+            <TextBlock Text="Role (chose)"></TextBlock>
+            <ComboBox Name="ComboBoxRoles"
+                      BorderThickness="0"
+                      Background="#3A3D41"
+                      Items="{Binding UserRole}"
+                      HorizontalAlignment="Stretch"
+                      SelectedItem="{Binding SelectedRole}">
+              <ComboBox.ItemTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding Title}"
+                             Tag="{Binding Id}" />
+                </DataTemplate>
+              </ComboBox.ItemTemplate>
+            </ComboBox>
+          </StackPanel>
+        </Grid>
+      </StackPanel>
+      <Button Content="Create"
+              Grid.Row="1"
+              Click="ButtonAddUser_OnClick"
+              VerticalAlignment="Bottom"
+              HorizontalAlignment="Center"
+              Margin="0,0,0,30">
+      </Button>
+    </Grid>
+  </ScrollViewer>
+
+</Window>

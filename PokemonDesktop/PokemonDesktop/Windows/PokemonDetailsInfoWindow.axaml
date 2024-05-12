@@ -1,0 +1,255 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="450"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="None"
+        x:Class="PokemonDesktop.Windows.PokemonDetailsInfoWindow"
+        Title="PokemonDetailsInfoWindow">
+
+  <Window.Styles>
+    <Style Selector="TextBlock">
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="Foreground" Value="#FFFFFF" />
+    </Style>
+
+    <Style Selector="TextBox">
+      <Setter Property="Background" Value="#3A3D41" />
+      <Setter Property="Foreground" Value="#FFFFFF" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+
+    <Style Selector="ComboBox">
+      <Setter Property="Background" Value="#3A3D41" />
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+
+    <Style Selector="Button.status">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Height" Value="30" />
+      <Setter Property="Width" Value="40" />
+    </Style>
+  </Window.Styles>
+
+  <!-- #e6e6e6 -->
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+
+    <Grid Row="0"
+          Background="#202327"
+          PointerPressed="Window_PointerPressed">
+      <StackPanel HorizontalAlignment="Right"
+                  Orientation="Horizontal">
+        <Button Classes="status"
+                Click="ButtonWinSize_OnClick">
+          <Image Source="/Assets/Icons/maximize_icon.png"></Image>
+        </Button>
+        <Button Classes="status"
+                Click="ButtonClose_OnClick">
+          <Image Source="/Assets/Icons/on-off-button_icon.png"></Image>
+        </Button>
+      </StackPanel>
+    </Grid>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  Grid.Row="1">
+
+      <StackPanel Orientation="Vertical"
+                  Background="#292D32">
+        <!-- Изм в зависимости от ситуации -->
+        <TextBlock
+          FontSize="25"
+          Padding="30,20"
+          Text="{Binding Title}">
+        </TextBlock>
+
+        <StackPanel Background="#3A3D41"
+                    Height="50"
+                    Orientation="Horizontal">
+          <TextBlock Text="Параметры"
+                     VerticalAlignment="Center"
+                     Padding="30,0,30,0">
+          </TextBlock>
+        </StackPanel>
+
+        <Grid Margin="30,20">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+          </Grid.RowDefinitions>
+
+          <Image Grid.ColumnSpan="1"
+                 Height="120"
+                 Width="150"
+                 Grid.RowSpan="2"
+                 Stretch="Uniform"
+                 Source="{Binding Photo}">
+          </Image>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="1"
+                      Margin="15,0,15,0">
+            <TextBlock Text="Рост"></TextBlock>
+            <TextBox Text="{Binding Height}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="2">
+            <TextBlock Text="Вес"></TextBlock>
+            <TextBox Text="{Binding Weigh}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Margin="15,0,15,0">
+            <TextBlock Text="Группа опыта"></TextBlock>
+            <TextBox Text="{Binding Group}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="2"
+                      Grid.Row="1">
+            <TextBlock Text="Всего в игре"></TextBlock>
+            <TextBox Text="{Binding AllInGame}"></TextBox>
+          </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,0,30,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0">
+            <TextBlock Text="Редкость"></TextBlock>
+            <TextBox Text="{Binding Rarity}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="1"
+                      Grid.Row="1"
+                      Margin="15,0,15,0">
+            <TextBlock Text="Шайни"></TextBlock>
+            <TextBox Text="{Binding Shainy}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="2"
+                      Grid.Row="1">
+            <TextBlock Text="Срок вылупления"></TextBlock>
+            <TextBox Text="{Binding HatchingTime}"></TextBox>
+          </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,20,30,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0">
+            <TextBlock Text="Стадия эволюции"></TextBlock>
+            <TextBox Text="{Binding EvolutionStage}"></TextBox>
+          </StackPanel>
+
+        </Grid>
+
+
+        <StackPanel Background="#3A3D41"
+                    Height="50"
+                    Margin="0,40,0,0"
+                    Orientation="Horizontal">
+          <TextBlock Text="Характеристики"
+                     VerticalAlignment="Center"
+                     Padding="30,0,30,0">
+          </TextBlock>
+        </StackPanel>
+
+        <Grid Margin="30,20,30,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0">
+            <TextBlock Text="Здоровье"></TextBlock>
+            <TextBox Text="{Binding Healt}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="1"
+                      Margin="15,0,15,0">
+            <TextBlock Text="Атака"></TextBlock>
+            <TextBox Text="{Binding Attack}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="2">
+            <TextBlock Text="Защита"></TextBlock>
+            <TextBox Text="{Binding Protect}"></TextBox>
+          </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,20,30,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0">
+            <TextBlock Text="Спец. атака"></TextBlock>
+            <TextBox Text="{Binding SpecAttack}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="1"
+                      Margin="15,0,15,0">
+            <TextBlock Text="Спец. защита"></TextBlock>
+            <TextBox Text="{Binding SpecProtect}"></TextBox>
+          </StackPanel>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="2">
+            <TextBlock Text="Скорость"></TextBlock>
+            <TextBox Text="{Binding Speed}"></TextBox>
+          </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,20,30,30">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+
+          <StackPanel Orientation="Vertical"
+                      Grid.Column="0">
+            <TextBlock Text="Сумма"></TextBlock>
+            <TextBox Text="{Binding Sum}"></TextBox>
+          </StackPanel>
+        </Grid>
+
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
+</Window>

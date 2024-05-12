@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="PokemonDesktop/App.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/MainWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/MyMessageBox.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Pages/LikesPage.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Pages/PokemonsPages.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Pages/RaitingPage.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Pages/UsersPage.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/AddEditCourse.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/AddUserWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/AuthorizeWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/ChangePassword.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/MainWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/PokemonDetailsInfoWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/PokemonsReviewaWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/UserActivityWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+        <entry key="PokemonDesktop/Windows/UserReviewsWindow.axaml" value="PokemonDesktop/PokemonDesktop.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

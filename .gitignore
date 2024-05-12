@@ -1,0 +1,27 @@
+# Ignore folders specific to Avalonia projects
+/bin/
+/obj/
+
+# Ignore Visual Studio generated files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore build output and NuGet packages
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+packages/
+
+# Ignore node_modules folder
+node_modules/
+
+# Ignore ASP.NET Web API specific files
+*.ldproj
+*.suo
+
+# Ignore user-specific files
+.DS_Store

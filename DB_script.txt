@@ -1,0 +1,139 @@
+CREATE TABLE "Type"
+(
+	"id" serial not null primary key,
+	"Title" VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE "Group" (
+	"id" serial not null primary key,
+	"Title" VARCHAR(255) NOT null
+);
+
+
+CREATE TABLE "Ability" (
+	"id" serial not null primary key,
+	"Title" VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE "User_role" (
+	"id" serial not null primary key,
+	"Title" VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE "Activity" (
+	"id" serial not null primary key,
+	"Title" VARCHAR(200) NOT NULL
+);
+
+
+CREATE TABLE "Pokemon_parameters" (
+	"id" serial not null primary key,
+	"Height" DECIMAL NOT NULL,
+	"Weigh" DECIMAL NOT NULL,
+	"All_in_game" INT not NULL,
+	"Shainy" INT not NULL,
+	"Rarity" INT not NULL,
+	"Hatching_time" INT null,
+	"Exp_group" INT NOT null,
+	"Evolution_stage" int not null
+);
+alter table "Pokemon_parameters" add constraint group_fk0 foreign key ("Exp_group") references "Group"("id");
+
+
+CREATE TABLE "Pokemon_harakteristiks" (
+	"id" serial not null PRIMARY KEY,
+	"Healt" INT NOT NULL,
+	"Attack" INT NOT NULL,
+	"Protect" INT NOT NULL,
+	"Spec_attack" INT NOT NULL,
+	"Spec_protect" INT NOT NULL,
+	"Speed" INT NOT NULL,
+	"Sum" INT null
+);
+
+
+CREATE TABLE "Pokemon" (
+	"id" serial not null primary key,
+	"Title" VARCHAR(200) NOT null,
+	"Photo_path" VARCHAR(200) NOT null,
+	"Parameter_id" int NOT null,
+	"Harakteristik_id" int NOT null
+);
+alter table "Pokemon" add constraint pok_fk0 foreign key ("Parameter_id") references "Pokemon_parameters"("id");
+alter table "Pokemon" add constraint pok_fk1 foreign key ("Harakteristik_id") references "Pokemon_harakteristiks"("id");
+
+
+CREATE TABLE "User" (
+	"id" serial not null primary key,
+	"Username" VARCHAR(200) NOT null,
+	"Password" VARCHAR(400) NOT null
+);
+
+alter table "User" add column "Role_id" int not null;
+
+alter table "User" add constraint user_role_fk0 foreign key ("Role_id") references "User_role"("id");
+
+
+create table "Pokemon_actual"
+(
+	"id" serial not null primary key,
+	"Value" varchar,
+	"LastDayActual" date not null,
+	"PokemonId" int not null
+);
+alter table "Pokemon_actual" add constraint pokActual_fk0 foreign key ("id") references "Pokemon"("id");
+
+
+create table "Raiting"
+(
+	"id" serial not null primary key,
+	"Pokemon_id" int not null,
+	"User_id" int not null,
+	"Star" int not null
+);
+
+alter table "Raiting" add column "Data_set" date not null;
+
+alter table "Raiting" add constraint "PokemonId_fk0" foreign key ("Pokemon_id") references "Pokemon"("id");
+alter table "Raiting" add constraint "UserId_fk0" foreign key ("User_id") references "User"("id");
+
+
+create table "User_activity"
+(
+	"id" serial not null primary key,
+	"User_id" int not null,
+	"Date" timestamp not null,
+	"Activity_id" int not null
+);
+alter table "User_activity" add constraint "UserId_fk0" foreign key ("User_id") references "User"("id");
+alter table "User_activity" add constraint "ActivityId_fk0" foreign key ("User_id") references "Activity"("id");
+
+
+CREATE TABLE "Pokemon_type" (
+	"id" serial not null primary key,
+	"Type_id" INT NOT NULL,
+	"Pokemon_id" INT NOT null
+);
+
+ALTER TABLE "Pokemon_type" ADD CONSTRAINT "PokemonType_fk0" FOREIGN KEY ("Type_id") REFERENCES "Type"("id");
+ALTER TABLE "Pokemon_type" ADD CONSTRAINT "PokemonType_fk1" FOREIGN KEY ("Pokemon_id") REFERENCES "Pokemon"("id");
+
+
+CREATE TABLE "Pokemon_Ability" (
+	"id" serial not null primary key,
+	"Ability_id" INT NOT NULL,
+	"Pokemon_id" INT NOT null
+);
+
+ALTER TABLE "Pokemon_Ability" ADD CONSTRAINT "PokemonAbility_fk0" FOREIGN KEY ("Ability_id") REFERENCES "Ability"("id");
+ALTER TABLE "Pokemon_Ability" ADD CONSTRAINT "Pokemonid_fk1" FOREIGN KEY ("Pokemon_id") REFERENCES "Pokemon"("id");
+
+
+
+
+
+
+

@@ -1,0 +1,123 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             MinWidth="510" MinHeight="470"
+             Background="#23262B"
+             x:Class="PokemonDesktop.Pages.RaitingPage">
+  
+  <UserControl.Styles>
+    
+    <Style Selector="TextBlock">
+      <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+      <Setter Property="FontFamily" Value="Roboto"></Setter>
+    </Style>
+    
+    <Style Selector="TextBlock.h3">
+      <Setter Property="FontSize" Value="18"></Setter>
+      <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+    
+    <Style Selector="TextBlock.h5">
+      <Setter Property="FontSize" Value="16"></Setter>
+      <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+    
+    
+  </UserControl.Styles>
+
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="60"></RowDefinition>
+      <RowDefinition Height="60"></RowDefinition>
+      <RowDefinition Height="60"></RowDefinition>
+    </Grid.RowDefinitions>
+
+    <Grid>
+      <TextBlock Text="Raiting"
+                 Foreground="#FFC618"
+                 FontSize="30"
+                 FontWeight="ExtraBold"
+                 FontFamily="Roboto"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="0">
+      </TextBlock>
+    </Grid>
+
+    <Grid Row="1"
+          Margin="0,10,0,0"
+          Background="#292D32">
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      
+      <TextBlock Text="Day"
+                 Classes="h3"
+                 Grid.Column="0"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+      </TextBlock>
+      
+      <TextBlock Text="Week"
+                 Classes="h3"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+      </TextBlock>
+      
+      <TextBlock Text="Month"
+                 Classes="h3"
+                 Grid.Column="2"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+      </TextBlock>
+      
+    </Grid>
+    
+    <Grid Row="2"
+          Margin="0,10,0,0">
+      
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      
+      <TextBlock Name="TextBlockPokDay"
+                 Classes="h5"
+                 TextWrapping="Wrap"
+                 MaxLines="2"
+                 Grid.Column="0"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+      </TextBlock>
+      
+      <TextBlock Name="TextBlockPokWeek"
+                 Classes="h5"
+                 TextWrapping="Wrap"
+                 MaxLines="2"
+                 Grid.Column="1"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+      </TextBlock>
+      
+      <TextBlock Name="TextBlockPokMonth"
+                 Classes="h5"
+                 TextWrapping="Wrap"
+                 MaxLines="2"
+                 Grid.Column="2"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+      </TextBlock>
+      
+    </Grid>
+
+  </Grid>
+
+</UserControl>

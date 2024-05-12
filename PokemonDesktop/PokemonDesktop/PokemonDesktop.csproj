@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove=".gitignore" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmerRootDescriptor Include="Roots.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="Avalonia" Version="0.10.18" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="SkiaSharp" Version="2.88.4-preview.70" />
+        <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\Icons\eye.png" />
+      <AvaloniaResource Include="Assets\Icons\eye.png" />
+      <None Remove="Assets\Icons\hide_eye.png" />
+      <AvaloniaResource Include="Assets\Icons\hide_eye.png" />
+      <None Remove="Assets\Icons\maximize_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\maximize_icon.png" />
+      <None Remove="Assets\Icons\on-off-button_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\on-off-button_icon.png" />
+      <None Remove="Assets\Icons\pokemon_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\pokemon_icon.png" />
+      <None Remove="Assets\Icons\user_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\user_icon.png" />
+      <None Remove="Assets\Icons\raiting_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\raiting_icon.png" />
+      <None Remove="Assets\Icons\left-arrow.png" />
+      <AvaloniaResource Include="Assets\Icons\left-arrow.png" />
+      <None Remove="Assets\Icons\right-arrow.png" />
+      <AvaloniaResource Include="Assets\Icons\right-arrow.png" />
+      <None Remove="Assets\Icons\sort.png" />
+      <AvaloniaResource Include="Assets\Icons\sort.png" />
+      <AvaloniaResource Include="Assets\Icons\user_add_icon.png" />
+      <None Remove="Assets\Icons\user_add.png" />
+      <None Remove="Assets\Icons\user_add_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\user_add_icon.png" />
+      <None Remove="Assets\Icons\plus_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\plus_icon.png" />
+      <None Remove="Assets\Icons\like_icon.png" />
+      <AvaloniaResource Include="Assets\Icons\like_icon.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Windows\MainWindow.axaml.cs">
+        <DependentUpon>MainWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Windows\UserActivityWindow.axaml.cs">
+        <DependentUpon>UserActivityWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+</Project>
